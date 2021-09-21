@@ -1,7 +1,7 @@
 package no.hvl.dat100.lab5.tabeller;
 
 public class Tabeller {
-
+//hei
 	// a)
 	public static void skrivUt(int[] tabell) {
 
