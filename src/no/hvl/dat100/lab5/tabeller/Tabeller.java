@@ -2,12 +2,14 @@ package no.hvl.dat100.lab5.tabeller;
 
 public class Tabeller {
 //heisann
-	//noe tull
+	// noe tull
 	// a)
 	public static void skrivUt(int[] tabell) {
 
-		// TODO
-		throw new UnsupportedOperationException("skrivUt ikke implementert");
+		System.out.print("{");
+		for (int i = 0; i < tabell.length; i++)
+			System.out.print(tabell[i] + ",");
+		System.out.print("}");
 
 	}
 
@@ -16,7 +18,7 @@ public class Tabeller {
 
 		// TODO
 		throw new UnsupportedOperationException("tilStreng ikke implementert");
-		
+
 	}
 
 	// c)
@@ -46,7 +48,7 @@ public class Tabeller {
 
 		// TODO
 		throw new UnsupportedOperationException("reverser ikke implementert");
-		
+
 	}
 
 	// g)
