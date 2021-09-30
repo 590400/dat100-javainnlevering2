@@ -4,9 +4,10 @@ public class Matriser {
 
 	public static void main(String args[]) {
 		int[][] a = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+		int[][] b = { {10,11,12}, {13,14,15}, {16,17,18} };
 		skrivUt(a, true);
 		System.out.println();
-		a = speile(a);
+		a = multipliser(a , b);
 		skrivUt(a, true);
 	}
 
@@ -83,32 +84,39 @@ public class Matriser {
 
 		int[][] tmp = new int[matrise.length][matrise[0].length];
 
-		// int [][] tmp = matrise;
-
 		for (int i = 0; i < matrise.length; i++) {
 
 			for (int j = 0; j < matrise[i].length; j++) {
+
 
 				tmp[i][j] = matrise[j][i];
 			}
 		}
 		return tmp;
+		
+		//skjønner fortsatt ikke hvorfor denne ikke blir riktig i junit test
 
 	}
 
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
 
-		
-		int[][] tmp = new int[a.length][a[0].length];
+		int[][] tmp = new int[a.length][b[0].length];
+		int hold = 0;
 		
 		for (int i = 0; i < a.length; i++) {
-
+			if (a[i].length != b.length) System.out.println("lengden på matisene passer ikke sammen");
 			for (int j = 0; j < a[i].length; j++) {
-
-				tmp[i][j] = a[i][j] * b[i][j];
+				for (int k = 0; k < b.length; k++) {
+					hold += a[i][k] * b [k][j];
+				}
+				tmp[i][j] = hold;
+				hold = 0;
 			}
 		}
-		return tmp;
+
+
+	return tmp;
+	//jeg har en galakse hjerne
 	}
 }
