@@ -4,10 +4,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+
+
 class MatriserEnhetsTester {
 
-	static int[][] a = { {1,2,3}, {4,5,6}, {7,8,9} };
-	static int[][] b = { {10,11,12}, {13,14,15}, {16,17,18} };
+	private static int[][] a = { {1,2,3}, {4,5,6}, {7,8,9} };
+	private static int[][] b = { {10,11,12}, {13,14,15}, {16,17,18} };
 		
 	@Test
 	void testtilStreng() {
@@ -15,6 +17,15 @@ class MatriserEnhetsTester {
 		assertEquals("1 2 3 \n4 5 6 \n7 8 9 \n",Matriser.tilStreng(a));
 	}
 
+
+	@Test
+	void testSpeile() {
+		
+		int[][] speilet = { {1,4,7}, {2,5,8}, {3,6,9} };
+		
+		assertArrayEquals(speilet,Matriser.speile(a));
+	}
+	
 	@Test
 	void testSkaler() {
 		
@@ -23,14 +34,6 @@ class MatriserEnhetsTester {
 		assertArrayEquals(skalert,Matriser.skaler(2,a));
 	}
 	
-	@Test
-	void testSpeile() {
-		
-		int[][] speilet = { {1,4,7}, {2,5,8}, {3,6,9} };
-			
-		
-		assertArrayEquals(speilet,Matriser.speile(a));
-	}
 	
 	@Test 
 	void testMultipliser () {

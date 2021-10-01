@@ -2,14 +2,6 @@ package no.hvl.dat100.lab6.matriser;
 
 public class Matriser {
 
-	public static void main(String args[]) {
-		int[][] a = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
-		int[][] b = { {10,11,12}, {13,14,15}, {16,17,18} };
-		skrivUt(a, true);
-		System.out.println();
-		a = multipliser(a , b);
-		skrivUt(a, true);
-	}
 
 	// a)
 	public static void skrivUt(int[][] matrise, boolean brukNøsted) {
@@ -50,14 +42,14 @@ public class Matriser {
 
 	// c)
 	public static int[][] skaler(int tall, int[][] matrise) {
-
+		int[][] tmp = matrise;
 		for (int i = 0; i < matrise.length; i++) {
 
 			for (int j = 0; j < matrise[i].length; j++) {
-				matrise[i][j] = matrise[i][j] * tall;
+				tmp[i][j] = matrise[i][j] * tall;
 			}
 		}
-		return matrise;
+		return tmp;
 	}
 
 	// d)
@@ -79,22 +71,22 @@ public class Matriser {
 		return erLik;
 	}
 
+	
 	// e)
-	public static int[][] speile(int[][] matrise) {
+	public static int[][] speile(int[][] c) {
 
-		int[][] tmp = new int[matrise.length][matrise[0].length];
+		int[][] tmp = new int[c.length][c[0].length];
 
-		for (int i = 0; i < matrise.length; i++) {
+		for (int i = 0; i < c.length; i++) {
 
-			for (int j = 0; j < matrise[i].length; j++) {
+			for (int j = 0; j < c[i].length; j++) {
 
-
-				tmp[i][j] = matrise[j][i];
+				tmp[i][j] = c[j][i];
 			}
 		}
 		return tmp;
-		
-		//skjønner fortsatt ikke hvorfor denne ikke blir riktig i junit test
+
+		// skjønner fortsatt ikke hvorfor denne ikke blir riktig i junit test (grrrrrrrr)
 
 	}
 
@@ -103,20 +95,20 @@ public class Matriser {
 
 		int[][] tmp = new int[a.length][b[0].length];
 		int hold = 0;
-		
+
 		for (int i = 0; i < a.length; i++) {
-			if (a[i].length != b.length) System.out.println("lengden på matisene passer ikke sammen");
+			if (a[i].length != b.length)
+				System.out.println("lengden på matisene passer ikke sammen");
 			for (int j = 0; j < a[i].length; j++) {
 				for (int k = 0; k < b.length; k++) {
-					hold += a[i][k] * b [k][j];
+					hold += a[i][k] * b[k][j];
 				}
 				tmp[i][j] = hold;
 				hold = 0;
 			}
 		}
 
-
-	return tmp;
-	//jeg har en galakse hjerne
+		return tmp;
+		// jeg har en galakse hjerne
 	}
 }
